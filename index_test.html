@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+<head>
+<style>
+body {
+    font-family:arial;
+}
+.loading {
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(0, 0, 0, 0.7) url(https://dl.dropbox.com/u/7604339/blog/loading48.gif) center center no-repeat;
+    width:100%;
+    height:100%;
+}
+.photos li {
+    float:left;
+    display:inline-block;
+    list-style:none;
+    margin:5px;
+    cursor:pointer;
+	border: 4px solid #fff;
+}
+
+.photos img {
+	width:75px;
+    height:90px;
+	display: block;
+}
+.photos li.selected {
+	border: 4px solid red;
+}
+
+</style>
+
+</head>
+
+<body>
+<div > 
+	<ul class="photos" data-bind="foreach:photos">
+        <li data-bind="click: $root.photoClicked, css: { selected : isSelected }">
+			<img data-bind="attr: { src: media.m}">
+        </li>
+	</ul>
+</div>
+<div class="loading" data-bind="visible:loading"></div>
+<script type="text/javascript" src="knockout-3.3.0.js"></script>
+<script type="text/javascript" src="knockout.mapping-latest.js"></script>
+<script type="text/javascript" src="viewModel.js"></script>
+<script type="text/javascript" src="flickrApp.js"></script>
+</body>
+</html>
